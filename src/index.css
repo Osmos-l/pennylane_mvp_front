@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Work Sans', sans-serif;
+}
+
+h2 {
+    color: #c3c3c3;
+    line-height: 32px;
+    font-weight: 100;
+}
+
+.main_div {
+    background-color: #1e1e1e;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+input {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+    color: white !important;
+}

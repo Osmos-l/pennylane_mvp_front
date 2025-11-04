@@ -1,0 +1,30 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 5rem;
+  height: 100vh;         /* pleine hauteur de l'écran */
+  background-color: #1e1e1e;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.icon-link {
+  color: #aaa;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.icon-link:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.icon-link.active {
+  color: white;
+}
