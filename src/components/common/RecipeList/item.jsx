@@ -4,15 +4,15 @@ import { FaClock, FaHourglassHalf } from "react-icons/fa";
 
 const RecipeItem = observer(({ recipe }) => {
     return (
-    <div className="d-flex align-items-start p-3 mb-3 border rounded shadow-sm bg-white">
+    <div className="mb-3 d-flex align-items-start border rounded shadow-sm bg-white recipe-item">
         <img
             src={recipe.image_url}
             alt={recipe.title}
             className="rounded me-3"
-            style={{ width: 100, height: 100, objectFit: "cover" }}
+            loading="lazy"
         />
 
-        <div className="d-flex flex-column justify-content-between">
+        <div className="p-3 d-flex flex-column justify-content-between">
             <h5 className="mb-2 fw-bold">{recipe.title}</h5>
 
             <div className="d-flex gap-3 text-muted">

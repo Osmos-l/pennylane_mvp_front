@@ -1,0 +1,10 @@
+.recipe-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.recipe-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}

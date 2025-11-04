@@ -11,11 +11,6 @@ import { setupStore } from '@stores/setupStore.js';
 function Main() {
   const [store] = useState(setupStore());
 
-  useEffect(() => {
-    store.recipesStore.preloadRecommendations();
-    // TODO: preload ingredients
-  }, []);
-
   if (!store || store.recipesStore.loading) {
     return;
   } 
