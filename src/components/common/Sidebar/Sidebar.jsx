@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { FaChartLine, FaUser } from 'react-icons/fa';
+import { IoMdHome } from 'react-icons/io';
 import './sidebar.css';
 
 export default function Sidebar() {
@@ -11,7 +11,7 @@ export default function Sidebar() {
           `icon-link ${isActive ? 'active' : ''}`
         }
       >
-        <FaChartLine />
+        <IoMdHome />
       </NavLink>
     </nav>
   );
