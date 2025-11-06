@@ -5,14 +5,14 @@ import IngredientItemSkeleton from "./itemSkeleton";
 import IngredientItem from "./item";
 import './index.css'
 
-const IngredientList = observer(() => {
+const IngredientList = observer((query) => {
     const { ingredientsStore } = useMst();
 
     useEffect(() => {
         ingredientsStore.fetchIngredients();
     }, [])
-    
-    const ingredients = ingredientsStore.ingredients;
+
+    const ingredients = ingredientsStore.filterByName(query.query);
     return (
         <div className="ingredient-list">
             {ingredientsStore.loading && ingredients.length === 0 ? (

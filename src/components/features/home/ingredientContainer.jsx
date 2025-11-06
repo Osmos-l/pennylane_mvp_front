@@ -30,7 +30,7 @@ const IngredientContainer = observer(() => {
                     className="ingredient-search"
                 />
             </div>
-            <IngredientList />
+            <IngredientList query={search} />
         </div>
     )
 })

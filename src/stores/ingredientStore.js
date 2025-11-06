@@ -14,8 +14,23 @@ export const IngredientsStore = types
     }))
     .actions((self) => ({
 
+        filterByName(name) {
+            if (!name || name.trim() === "") {
+                return self.ingredients;
+            }
+
+            return self.ingredients.filter((ing) =>
+                ing.name.toLowerCase().includes(name.toLowerCase())
+            );
+        },
+
         setIngredients(ingredients) {
-            self.ingredients = ingredients.map((s) => IngredientModel.create({ owned: false, ...s }));
+            ingredients.forEach((ing) => {
+                const exists = self.ingredients.find((i) => i.id === ing.id);
+                if (!exists) {
+                self.ingredients.push(IngredientModel.create({ owned: false, ...ing }));
+                }
+            });
         },
 
         fetchIngredients: flow(function* (params) {
