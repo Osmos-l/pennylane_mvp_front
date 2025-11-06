@@ -8,7 +8,8 @@ export const RecipeModel = types
         prep_time: types.integer,
         ratings: types.union(types.float, types.integer),
         image_url: types.string,
-        author_id: types.integer
+        author_id: types.integer,
+        instructions: types.maybeNull(types.array(types.string)),
     })
     .views(() => ({}))
     .actions((self) => ({}))

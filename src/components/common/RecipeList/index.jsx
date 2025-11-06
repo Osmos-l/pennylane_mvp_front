@@ -10,22 +10,26 @@ const RecipeList = observer(() => {
     const { recipesStore } = useMst();
 
     useEffect(() => {
-        recipesStore.preloadRecommendations();
+        recipesStore.fetchRecipes();
     }, [])
 
     const recipes = recipesStore.recipes;
 
     return (
         <CardBody className="recipe-list">
-            {recipesStore.loading && recipes.length === 0 ? (
-                Array(5).fill(0).map((_, i) => <RecipeItemSkeleton key={i} />)
-            ) : recipes.length === 0 ? (
-                <div className="text-center py-4 text-secondary bg-transparent">
-                    Aucune recette trouvée.
+            <div className="container">
+                <div className="row">
+                    {recipesStore.loading && recipes.length === 0 ? (
+                        Array(5).fill(0).map((_, i) => <RecipeItemSkeleton key={i} />)
+                    ) : recipes.length === 0 ? (
+                        <div className="text-center py-4 text-secondary bg-transparent">
+                            Aucune recette trouvée.
+                        </div>
+                    ) : (
+                        recipes.map((recipe) => <RecipeItem key={recipe.id} recipe={recipe} />)
+                    )}
                 </div>
-            ) : (
-                recipes.map((recipe) => <RecipeItem key={recipe.id} recipe={recipe} />)
-            )}
+            </div>
         </CardBody>
     )
 })

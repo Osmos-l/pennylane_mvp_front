@@ -5,6 +5,10 @@ export function setupStore() {
         recipesStore: {
             recipes: [],
             loading: false
+        },
+        ingredientsStore: {
+            ingredients: [],
+            loading: false
         }
     });
 

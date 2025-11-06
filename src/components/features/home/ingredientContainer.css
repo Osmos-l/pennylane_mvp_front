@@ -1,0 +1,21 @@
+.ingredient-search {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    font-size: 16px;
+    transition: all 0.2s ease;
+    color: #333;
+}
+
+.ingredient-search::placeholder {
+    color: #aaa;
+}
+
+.ingredient-search:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.2);
+}

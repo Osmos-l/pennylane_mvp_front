@@ -1,5 +1,5 @@
 import { RecipeModel } from "@models/recipe";
-import { fetchRecommendationsRecipes } from "@services/recipes";
+import { fetchRecipes as fetchRecipesService, fetchInstructionsForRecipe } from "@services/recipes";
 import { flow, types } from "mobx-state-tree";
 
 export const RecipesStore = types
@@ -14,18 +14,32 @@ export const RecipesStore = types
             self.recipes = recipes.map((s) => RecipeModel.create(s));
         },
 
-        preloadRecommendations: flow(function* () {
-            if (self.recipes.length > 0) return;
-
+        fetchRecipes: flow(function* (params) {
             self.loading = true;
             try {
-                const data = yield fetchRecommendationsRecipes();
+                const data = yield fetchRecipesService(params);
                 self.setRecipes(data);
 
             } catch (e) {
-                console.error("preloadRecommendations KO", e);
+                console.error("fetchRecipes KO", e);
             } finally {
                 self.loading = false;
             }
-        })
+        }),
+
+        fetchInstructionsForRecipe: flow(function* (recipe) {
+            if (!recipe) return;
+
+            self.loading = true;
+            try {
+                const data = yield fetchInstructionsForRecipe(recipe.id, {});
+                if (data) {
+                    recipe.instructions = data.instructions || [];
+                }
+            } catch (e) {
+                console.error("fetchInstructionsForRecipe KO", e);
+            } finally {
+                self.loading = false;
+            }
+        }),
     }))
